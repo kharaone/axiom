@@ -103,7 +103,7 @@
         "git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /home/op/recon/sqlmap-dev",
         "git clone https://github.com/projectdiscovery/nuclei-templates /home/op/recon/nuclei",
         "echo 'Installing Nuclei'",
-        "/bin/su -l op -c 'go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest'",
+        "/bin/su -l op -c 'go install github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest' && cp /home/op/go/bin/nuclei /usr/bin/nuclei",
         "wget -O /home/op/lists/permutations.txt https://gist.github.com/six2dez/ffc2b14d283e8f8eff6ac83e20a3c4b4/raw",
         "wget -O /home/op/lists/fuzz_wordlist.txt https://raw.githubusercontent.com/six2dez/OneListForAll/main/onelistforallmicro.txt",
         "echo 'Installing fail2ban'",
@@ -156,6 +156,43 @@
         "/bin/su -l op -c 'go install github.com/d3mondev/puredns/v2@latest'",
         "echo 'Installing crlfuzz'",
         "/bin/su -l op -c 'go install github.com/dwisiswant0/crlfuzz/cmd/crlfuzz@latest'",
+        
+        "echo 'Installing cent template manager'",
+        "/bin/su -l op -c 'go install -v github.com/xm1k3/cent@latest' && cp /home/op/go/bin/cent /usr/bin/cent",
+        "/bin/su -l op -c 'cent init'",
+        "/bin/su -l op -c 'cent -p /home/op/cent-nuclei-templates -k'",
+        "/bin/su -l op -c 'wget -q -O - https://raw.githubusercontent.com/NagliNagli/BountyTricks/main/ssrf.yaml > /home/op/cent-nuclei-templates/ssrf_nagli.yaml'",
+        "/bin/su -l op -c 'wget -q -O - https://raw.githubusercontent.com/NagliNagli/BountyTricks/main/sap-redirect.yaml > /home/op/cent-nuclei-templates/sap-redirect_nagli.yaml'",
+        
+        "echo 'Installing analyticsrelationships'",
+        "/bin/su -l op -c 'go install -v github.com/Josue87/analyticsrelationships@latest' && cp /home/op/go/bin/analyticsrelationships /usr/bin/analyticsrelationships",
+
+        "echo 'Installing gotator'",
+        "/bin/su -l op -c 'go install -v github.com/Josue87/gotator@latest' && cp /home/op/go/bin/gotator /usr/bin/gotator",
+
+        "echo 'Installing roboxtractor'",
+        "/bin/su -l op -c 'go install -v github.com/Josue87/roboxtractor@latest' && cp /home/op/go/bin/roboxtractor /usr/bin/roboxtractor",
+
+        "echo 'Installing dnstake'",
+        "/bin/su -l op -c 'go install -v github.com/pwnesia/dnstake/cmd/dnstake@latest' && cp /home/op/go/bin/dnstake /usr/bin/dnstake",
+
+        "echo 'Installing dsieve'",
+        "/bin/su -l op -c 'go install -v github.com/trickest/dsieve@master' && cp /home/op/go/bin/dsieve /usr/bin/dsieve",
+
+        "echo 'Installing Web-Cache-Vulnerability-Scanner'",
+        "/bin/su -l op -c 'go install -v github.com/Hackmanit/Web-Cache-Vulnerability-Scanner@latest' && cp /home/op/go/bin/Web-Cache-Vulnerability-Scanner /usr/bin/Web-Cache-Vulnerability-Scanner",
+
+        "/bin/su -l op -c 'git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git /home/op/recon/xnLinkFinder ; cd /home/op/recon/xnLinkFinder ; python3 setup.py install'",
+        
+        "/bin/su -l op -c 'git clone https://github.com/xnl-h4ck3r/urless.git /home/op/recon/urless ; cd /home/op/recon/urless ; python3 setup.py install'",
+
+        "/bin/su -l op -c 'git clone https://github.com/w9w/JSA.git /home/op/recon/JSA ; cd /home/op/recon/JSA ; pip3 install -r requirements.txt'",
+
+        "/bin/su -l op -c 'git clone https://github.com/defparam/smuggler.git /home/op/recon/smuggler ; cd /home/op/recon/smuggler ; pip3 install -r requirements.txt'",
+
+        "/bin/su -l op -c 'git clone https://github.com/cramppet/regulator.git /home/op/recon/regulator ; cd /home/op/recon/regulator ; pip3 install -r requirements.txt'",
+
+
         "echo 'Setting SSH Alive Internal'",
         "/bin/su -l root -c 'echo \"ClientAliveInterval 60\" | sudo tee -a /etc/ssh/sshd_config'",
         "/bin/su -l root -c 'echo \"ClientAliveCountMax 60\" | sudo tee -a /etc/ssh/sshd_config'",
