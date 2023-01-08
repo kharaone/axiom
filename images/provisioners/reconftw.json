@@ -182,6 +182,9 @@
         "echo 'Installing Web-Cache-Vulnerability-Scanner'",
         "/bin/su -l op -c 'go install -v github.com/Hackmanit/Web-Cache-Vulnerability-Scanner@latest' && cp /home/op/go/bin/Web-Cache-Vulnerability-Scanner /usr/bin/Web-Cache-Vulnerability-Scanner",
 
+        "echo 'Installing Oralyzer'",
+        "/bin/su -l op -c 'git clone https://github.com/r0075h3ll/Oralyzer.git /home/op/recon/Oralyzer ; cd /home/op/recon/Oralyzer ;  pip3 install -r requirements.txt'",
+
         "/bin/su -l op -c 'git clone https://github.com/xnl-h4ck3r/xnLinkFinder.git /home/op/recon/xnLinkFinder ; cd /home/op/recon/xnLinkFinder ; python3 setup.py install'",
         
         "/bin/su -l op -c 'git clone https://github.com/xnl-h4ck3r/urless.git /home/op/recon/urless ; cd /home/op/recon/urless ; python3 setup.py install'",

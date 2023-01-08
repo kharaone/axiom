@@ -1,0 +1,5 @@
+[{
+  "command":"python3 -u /home/op/recon/Oralyzer/Oralyzer.py -l input -o output",
+  "ext":"txt",
+  "threads":"2"
+}]

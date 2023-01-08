@@ -1,0 +1,4 @@
+[{
+  "command":"cat input | python3 /home/op/recon/smuggler/smuggler.py -q --no-color | anew -q output",
+  "ext":"txt"
+}]
